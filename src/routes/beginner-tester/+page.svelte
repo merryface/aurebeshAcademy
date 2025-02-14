@@ -11,7 +11,6 @@
   let incorrect = 0;
   let classColour = '';
   let textLoading = true
-  let answerLoading = true
 
   const getRandomName = async () => {
     const randomGoupIndex = Math.floor(Math.random() * databank.groups.length)
@@ -28,26 +27,31 @@
     
     // set timeout to clear the result after 1 second
     setTimeout(async () => {
+      textLoading = true
       result = '';
       currentName = await getRandomName();
       options = await generateOptions(currentName, getRandomName);
+      textLoading = false
     }, 1000); 
   };
   
 
   onMount(async () => {
+    textLoading = true
     currentName = await getRandomName()
     options = await generateOptions(currentName, getRandomName);
+    textLoading = false
   })
 
 </script>
 
 <h1>Beginner Test: Names</h1>
-
 <div class="test">
-
-  <button class="aurebesh">{currentName}</button>
+  <button class="aurebesh">{textLoading ? "Loading..." : currentName}</button>
   
+  {#if textLoading}
+    <p class="loading-button" disabled>Loading...</p>
+  {/if}
   <div class="answers">
     {#each options as option}
     <button onclick={() => checkAnswer(option)}>{option}</button>
@@ -56,11 +60,13 @@
   
   <div class={"result " + classColour}>{result}</div>
 
+  {#if !textLoading}
   <div class="totaliser">
     <p><span>Correct: </span><span class="correct">{correct}</span></p>
     <p><span>Incorrect: </span> <span class="incorrect">{incorrect}</span></p>
     <p><span>Score:</span>{((correct/(correct+incorrect)*100) || 0).toFixed(0)}%</p>
   </div>
+  {/if}
 </div>
 
 <style>
@@ -91,6 +97,12 @@
     gap: 10px;
     max-width: 300px;
     margin: 20px auto;
+  }
+
+  .loading-button {
+    cursor: not-allowed;
+    align-self: center;
+    padding: 10px;
   }
 
   /* Button styling */

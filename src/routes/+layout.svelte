@@ -1,6 +1,7 @@
 <div class="container">
   <slot />
 </div>
+<a href="/">HOME</a>
 
 <style>
   .container {

@@ -8,32 +8,37 @@
   let correct = 0;
   let incorrect = 0;
   let classColour = '';
+  let textLoading = true;
 
-  function getRandomLetter() {
+  const getRandomLetter = async () => {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'
     const randomIndex = Math.floor(Math.random() * alphabet.length)
     return alphabet[randomIndex]
   }
 
 
-  const checkAnswer = (option) => {
+  const checkAnswer = async (option) => {
     option === currentLetter ? result = 'Correct!' : result = 'Wrong!';
     option === currentLetter ? correct++ : incorrect++;
     classColour = option === currentLetter ? 'correct' : 'incorrect';
     
     // set timeout to clear the result after 1 second
-    setTimeout(() => {
+    setTimeout(async () => {
+      textLoading = true
       result = '';
-      currentLetter = getRandomLetter();
-      options = generateOptions(currentLetter, getRandomLetter);
+      currentLetter = await getRandomLetter();
+      options = await generateOptions(currentLetter, getRandomLetter);
+      textLoading = false
     }, 1000); 
   };
 
 
   
-  onMount(() => {
-    currentLetter = getRandomLetter()
-    options = generateOptions(currentLetter, getRandomLetter);
+  onMount(async () => {
+    textLoading = true
+    currentLetter = await getRandomLetter()
+    options = await generateOptions(currentLetter, getRandomLetter);
+    setTimeout(() => textLoading = false, 400)
   })
 </script>
 
@@ -41,13 +46,18 @@
 
 <div class="test">
 
-  <button class="aurebesh">{currentLetter}</button>
+  <button class="aurebesh">{textLoading ? "Loading.." : currentLetter}</button>
   
-  <div class="answers">
-    {#each options as option}
-    <button on:click={() => checkAnswer(option)}>{option}</button>
-    {/each}
-  </div>
+  {#if textLoading}
+    <p class="loading-button" disabled>Loading...</p>
+  {:else}
+    <div class="answers">
+      {#each options as option}
+      <button on:click={() => checkAnswer(option)}>{option}</button>
+      {/each}
+    </div>
+  {/if}
+
   
   <div class={"result " + classColour}>{result}</div>
 
@@ -86,6 +96,12 @@
     gap: 10px;
     max-width: 300px;
     margin: 20px auto;
+  }
+
+  .loading-button {
+    cursor: not-allowed;
+    align-self: center;
+    padding: 10px;
   }
 
   /* Button styling */
