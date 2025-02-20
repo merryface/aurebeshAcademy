@@ -1,11 +1,13 @@
 <div class="container">
   <slot />
 </div>
-<a href="/">HOME</a>
+
 
 <style>
   .container {
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
   }
 </style>

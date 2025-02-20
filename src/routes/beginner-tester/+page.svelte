@@ -1,8 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import { databank } from '$lib/state/starwars-databank.svelte.js'
+  import { databank } from '$lib/state/starwars-databank.svelte.js';
   import shuffle from "$lib/utils/shuffle";
   import generateOptions from '$lib/utils/generateOptions';
+
+  import Totaliser from "$lib/components/Totaliser.svelte";
 
   let currentName = ''
   let options = []
@@ -47,26 +49,24 @@
 
 <h1>Beginner Test: Names</h1>
 <div class="test">
-  <button class="aurebesh">{textLoading ? "Loading..." : currentName}</button>
+  <div class="aurebesh">{textLoading ? "Loading..." : currentName}</div>
   
-  {#if textLoading}
-    <p class="loading-button" disabled>Loading...</p>
-  {/if}
-  <div class="answers">
-    {#each options as option}
-    <button onclick={() => checkAnswer(option)}>{option}</button>
-    {/each}
+  <div class="answer">
+    {#if textLoading}
+    <button class="loading-button" disabled>Loading...</button>
+    {/if}
+    <div class="answers">
+      {#each options as option}
+      <button onclick={() => checkAnswer(option)} disabled={textLoading}>{option}</button>
+      {/each}  
+    </div>
+    <div class={"result " + classColour}>{result}</div>
   </div>
-  
-  <div class={"result " + classColour}>{result}</div>
 
   {#if !textLoading}
-  <div class="totaliser">
-    <p><span>Correct: </span><span class="correct">{correct}</span></p>
-    <p><span>Incorrect: </span> <span class="incorrect">{incorrect}</span></p>
-    <p><span>Score:</span>{((correct/(correct+incorrect)*100) || 0).toFixed(0)}%</p>
-  </div>
+    <Totaliser correct={correct} incorrect={incorrect} />
   {/if}
+
 </div>
 
 <style>
@@ -90,7 +90,10 @@
     color: #00ff00;
   }
 
-  /* Container for answer buttons using CSS Grid */
+  .answer {
+    height: 30vh
+  }
+
   .answers {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -133,21 +136,5 @@
 
   .incorrect {
     color: #ff0000;
-  }
-
-  .totaliser {
-    padding: 0.5rem 1rem;
-    border: 1px solid #333;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    font-size: 1.5rem;
-    max-width: 300px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .totaliser p {
-    display: flex;
-    justify-content: space-between;
   }
 </style>

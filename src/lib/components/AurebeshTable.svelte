@@ -1,14 +1,15 @@
 <script>
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_,./:;/\'\"()[]{}'.split('');
+  const letters = 'abcdefghijklmnopqrstuvwxyz1234567890!-_,./:;/\'\"()[]{}'.split('');
 </script>
 
 <div class="aurebesh-reference-chart">
   {#each letters as letter}
     <div class="letter-card">
       <div class="aurebesh">{letter}</div>
-      <div class="english">{letter}</div>
+      <div class="english">{letter.toUpperCase()}</div>
     </div>
   {/each}
+
 </div>
 
 <style>

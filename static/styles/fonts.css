@@ -1,75 +1,10 @@
+
+/* Aurebesh Regular */
 @font-face {
-/* 1. Aurebesh Regular */
-@font-face {
-    font-family: 'Aurebesh';
-    src: url('/aurebesh/Aurebesh.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  /* 2. Aurebesh Bold */
-  @font-face {
-    font-family: 'Aurebesh';
-    src: url('/aurebesh/Aurebesh Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  /* 3. Aurebesh Italic */
-  @font-face {
-    font-family: 'Aurebesh';
-    src: url('/aurebesh/Aurebesh Italic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  /* 4. Aurebesh Bold Italic */
-  @font-face {
-    font-family: 'Aurebesh';
-    src: url('/aurebesh/Aurebesh Bold Italic.otf') format('opentype');
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  /* 5. Aurebesh Condensed Regular */
-  @font-face {
-    font-family: 'Aurebesh Condensed';
-    src: url('/aurebesh/Aurebesh Condensed.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  /* 6. Aurebesh Condensed Bold */
-  @font-face {
-    font-family: 'Aurebesh Condensed';
-    src: url('/aurebesh/Aurebesh Condensed Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  /* 7. Aurebesh Condensed Italic */
-  @font-face {
-    font-family: 'Aurebesh Condensed';
-    src: url('/aurebesh/Aurebesh Condensed Italic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  /* 8. Aurebesh Condensed Bold Italic */
-  @font-face {
-    font-family: 'Aurebesh Condensed';
-    src: url('/aurebesh/Aurebesh Condensed Bold Italic.otf') format('opentype');
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  /* Example usage */
-  body {
-    font-family: 'Aurebesh', sans-serif;
-  }
-  
-  h1 {
-    font-family: 'Aurebesh Condensed', sans-serif;
-    font-weight: 700; /* Bold */
-  }
-  
+  font-family: 'Aurebesh';
+  src: url('/styles/aurebesh/Aurebesh.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
