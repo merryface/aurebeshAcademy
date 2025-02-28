@@ -11,7 +11,7 @@
   ];
 </script>
 
-<div class="datapad">
+<div class="datapad aurebesh">
   <header>
     <h1>Datapad</h1>
   </header>
@@ -29,7 +29,6 @@
     position: relative;
     min-height: 100vh;
     padding: 2rem;
-    font-family: sans-serif;
     color: #0f0;
   text-shadow: 0 0 8px #0f0;
     background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 100%);
