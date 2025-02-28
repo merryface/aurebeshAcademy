@@ -1,15 +1,7 @@
 <script>
   import { page } from "$app/stores";
   import AurebeshTable from "./AurebeshTable.svelte";
-
-  const siteLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/theory" },
-    { name: "Translator", href: "/translator" },
-    { name: "Letter Tester", href: "/letter-tester" },
-    { name: "Intel", href: "/intel" },
-    { name: "Names", href: "/beginner-tester" },
-  ];
+  import {siteLinks} from "$lib/data/siteLinks.js";
 
   let showMenu = false;
   let showTable = false;
@@ -99,6 +91,7 @@
     transform: translateX(100%); /* Hide off-screen */
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
+    border: 1px solid #00ff00;
   }
 
   .navbar_navigation.active {

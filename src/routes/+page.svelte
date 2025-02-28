@@ -1,16 +1,18 @@
 <script>
+  import {siteLinks} from "$lib/data/siteLinks.js";
+
   const externalLinks = {
     wookie_basic: 'https://starwars.fandom.com/wiki/Galactic_Basic_Standard'
   }
 
-  const siteLinks = [
-    { name: "Home", href: "/" },
-    { name: "What is Aurebesh?", href: "/theory" },
-    { name: "Translator", href: "/translator" },
-    { name: "Learn the Letters", href: "/letter-tester" },
-    { name: "Practice Words", href: "/beginner-tester" },
-    { name: "Intel", href: "/intel" },
-  ]
+  // const siteLinks = [
+  //   { name: "Home", href: "/" },
+  //   { name: "What is Aurebesh?", href: "/theory" },
+  //   { name: "Translator", href: "/translator" },
+  //   { name: "Learn the Letters", href: "/letter-tester" },
+  //   { name: "Practice Words", href: "/beginner-tester" },
+  //   { name: "Intel", href: "/intel" },
+  // ]
 
 </script>
 

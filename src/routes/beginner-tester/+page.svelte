@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { databank } from '$lib/state/starwars-databank.svelte.js';
+  import { databank } from '$lib/data/starwars-databank.svelte.js';
   import shuffle from "$lib/utils/shuffle";
   import generateOptions from '$lib/utils/generateOptions';
 
