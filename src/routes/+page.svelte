@@ -43,7 +43,7 @@
 </ul>
 
 <div class="resources">
-  <h3>External Resources used for this website:</h3>
+  <h3>External Resources:</h3>
   <div class="external-resources">
     <a href="https://starwars-databank.vercel.app/">STAR WARS DATABANK</a>
     <a href="https://starwars.fandom.com/wiki/Main_Page">Wookieepedia</a>
@@ -87,7 +87,7 @@
   .resources {
     background-color: #333;
     padding: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 5rem;
   }
 
   .resources h3 {
