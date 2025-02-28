@@ -1,18 +1,12 @@
 <script>
   import {siteLinks} from "$lib/data/siteLinks.js";
+  import Link from "$lib/components/Link.svelte";
 
   const externalLinks = {
-    wookie_basic: 'https://starwars.fandom.com/wiki/Galactic_Basic_Standard'
+    wookie_basic: {label: 'Basic', href: 'https://starwars.fandom.com/wiki/Galactic_Basic_Standard'},
+    wookie_hyperspace: { label: 'hyperspace routes', href:'https://starwars.fandom.com/wiki/Hyperspace_route'},
+    wookie_slice: { label: 'intelligence officers', href: 'https://starwars.fandom.com/wiki/Slicer/Legends'}
   }
-
-  // const siteLinks = [
-  //   { name: "Home", href: "/" },
-  //   { name: "What is Aurebesh?", href: "/theory" },
-  //   { name: "Translator", href: "/translator" },
-  //   { name: "Learn the Letters", href: "/letter-tester" },
-  //   { name: "Practice Words", href: "/beginner-tester" },
-  //   { name: "Intel", href: "/intel" },
-  // ]
 
 </script>
 
@@ -24,9 +18,9 @@
 
 <main>
 
-  <p>Humans of the planet Earth. The New Republic has received word of your world. We reside in a galaxy far far away, and therefore cannot establish hyperspace routes to you. However, we understand that some of you have a fascination with our corner of the universe. In order to aid you, the Republic has agreed to create a resource for you to learn our writing system, Aurebesh. The <a href={externalLinks.wookie_basic}>Galactic Basic Standard</a> is the most spoken language in the known regions of our galaxy. Thankfully, our intel indicates that Basic is very similar to one of your Earth languages. We therefore think you will be able to quikcly learn our written language.</p>
+  <p>Humans of the planet Earth. The New Republic has received word of your world. We reside in a galaxy far far away, and therefore cannot establish <Link link={externalLinks.wookie_hyperspace}/> to you. However, we understand that some of you have a fascination with our corner of the universe. In order to aid you, the Republic has agreed to create a resource for you to learn our writing system, Aurebesh. <Link link={externalLinks.wookie_basic} /> is the most spoken language in the known regions of our galaxy. Thankfully, our intel indicates that Basic is very similar to one of your Earth languages. We therefore think you will be able to quikcly learn our written language.</p>
   
-  <p>Our intelligence officers were able to slice into your data networks (and were concerned the ease in which they able to do so, especially from such a large distance), and have reported back to the Republic that one such network, called, "the internet", is unsecured and accessible to virtually all humans of your planet. After a short familiarisation and reconstruction of your limited data-pads and terminals (as we understand, you call them, phones, tablets, desktops, and laptops), we were able to create a subroutine you call a website, to accomplish this task. This is it.</p>
+  <p>Our <Link link={externalLinks.wookie_slice} /> were able to slice into your data networks (and were concerned the ease in which they able to do so, especially from such a large distance), and have reported back to the Republic that one such network, called, "the internet", is unsecured and accessible to virtually all humans of your planet. After a short familiarisation and reconstruction of your limited data-pads and terminals (as we understand, you call them, phones, tablets, desktops, and laptops), we were able to create a subroutine you call a website, to accomplish this task. This is it.</p>
   
   <p>Aurebesh Academy is the first step in establishing the first secured inter-galactic relationships of this kind in the known history of our galaxy. From our understanding, this is your first interaction with off-world civilsations. We welcome you to the galactic society!</p>
   
@@ -78,6 +72,7 @@
   img {
     max-width: 100%;
     max-height: 50vh;
+    object-fit: contain;
   }
 
   main p, .resources p {
