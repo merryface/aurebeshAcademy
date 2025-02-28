@@ -41,7 +41,6 @@
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-    overflow: hidden;
   }
 
   .buy-coffee {
