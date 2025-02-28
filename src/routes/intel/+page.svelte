@@ -55,7 +55,9 @@
   <button class="loading-button" disabled>Loading...</button>
   {:else}
   <div class="question">
-    <img src={'images/'+ currentImage.imagePath} alt={correctAnswer} />
+    <div class="img-container">
+      <img src={'images/'+ currentImage.imagePath} alt={correctAnswer} />
+    </div>
     <span class="difficulty">Difficulty: {currentImage.difficultyLevel.toUpperCase()}</span>
 
     <p>Can't see the text clearly?</p>
@@ -89,6 +91,14 @@
   color: #fff;
   font-size: 2rem;
   margin-bottom: 20px;
+  }
+
+  .img-container {
+    min-width: 90vw;
+    min-height: 50vh;
+    margin: 0 auto;
+    display: block;
+    background-color: #444;
   }
 
   img {
