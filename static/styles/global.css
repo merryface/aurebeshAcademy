@@ -59,3 +59,14 @@ html {
     background: black;
     color: white;
 }
+
+.btn {
+	padding: 10px;
+	font-size: 1.5rem;
+	background-color: #111;
+	color: #ccc;
+	border: 1px solid #444;
+	border-radius: 4px;
+	cursor: pointer;
+	text-transform: uppercase;
+}

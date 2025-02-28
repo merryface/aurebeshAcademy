@@ -1,5 +1,11 @@
+<script>
+  import Navbar from '$lib/components/Navbar.svelte'
+  let {children} = $props()
+</script>
+
+<Navbar />
 <div class="container">
-  <slot />
+  {@render children()}
 </div>
 
 
