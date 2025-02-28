@@ -60,6 +60,11 @@ html {
     color: white;
 }
 
+p a, .resources a {
+	text-decoration: none;
+	color: #00ff00;
+}
+
 .btn {
 	padding: 10px;
 	font-size: 1.5rem;
@@ -69,4 +74,14 @@ html {
 	border-radius: 4px;
 	cursor: pointer;
 	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn a, .btn p, .btn span {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	width: 100%;
 }
