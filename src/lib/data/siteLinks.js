@@ -5,4 +5,6 @@ export const siteLinks = [
   { name: "Learn the Letters", href: "/letter-tester" },
   { name: "Practice Words", href: "/beginner-tester" },
   { name: "Intel", href: "/intel" },
+  { name: "Databank", href:"/databank" }
+
 ]
