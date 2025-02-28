@@ -53,12 +53,14 @@
   
   <div class="answer">
     {#if textLoading}
-    <button class="loading-button" disabled>Loading...</button>
+      <button class="loading-button" disabled>Loading...</button>
     {/if}
     <div class="answers">
-      {#each options as option}
-      <button onclick={() => checkAnswer(option)} disabled={textLoading}>{option}</button>
-      {/each}  
+      {#if !textLoading}
+        {#each options as option}
+        <button onclick={() => checkAnswer(option)} disabled={textLoading}>{option}</button>
+        {/each}  
+      {/if}
     </div>
     <div class={"result " + classColour}>{result}</div>
   </div>
@@ -103,9 +105,11 @@
   }
 
   .loading-button {
+    margin-top: 20px;
     cursor: not-allowed;
     align-self: center;
     padding: 10px;
+    width: 100%;
   }
 
   /* Button styling */
