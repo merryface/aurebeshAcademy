@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import generateOptions from '$lib/utils/generateOptions';
   import Totaliser from '$lib/components/Totaliser.svelte';
+	import { characters } from '$lib/data/characters.js';
 
   let currentLetter = ''
   let options = [];
@@ -12,9 +13,8 @@
   let textLoading = true;
 
   const getRandomLetter = async () => {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    const randomIndex = Math.floor(Math.random() * alphabet.length)
-    return alphabet[randomIndex]
+    const randomIndex = Math.floor(Math.random() * characters.length)
+    return characters[randomIndex]
   }
 
 

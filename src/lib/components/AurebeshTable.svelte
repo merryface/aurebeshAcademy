@@ -1,9 +1,6 @@
 <script>
-  const letters = [
-  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-  'y', 'z', 'ch', 'ae', 'eo', 'kh', 'ng', 'oo', 'sh', 'th', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '?', '-', '_', ',', '.', '/', ':', ';', '/', "'", '"', '(',
-  ')', '[', ']', '{', '}'
-]
+	import { characters } from '$lib/data/characters.js';
+  const letters = characters
 </script>
 
 <div class="aurebesh-reference-chart">
