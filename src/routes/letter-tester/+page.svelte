@@ -4,13 +4,13 @@
   import Totaliser from '$lib/components/Totaliser.svelte';
 	import { characters } from '$lib/data/characters.js';
 
-  let currentLetter = ''
-  let options = [];
-  let result = '';
-  let correct = 0;
-  let incorrect = 0;
-  let classColour = '';
-  let textLoading = true;
+  let currentLetter =$state('');
+  let options = $state([]);
+  let result = $state('');
+  let correct = $state(0);
+  let incorrect = $state(0);
+  let classColour = $state('');
+  let textLoading = $state(true);
 
   const getRandomLetter = async () => {
     const randomIndex = Math.floor(Math.random() * characters.length)
@@ -50,22 +50,16 @@
   <div class="aurebesh">{textLoading ? "Loading.." : currentLetter}</div>
   
   <div class="answer">
-    {#if textLoading}
-    <p class="loading-button" disabled>Loading...</p>
-    {:else}
     <div class="answers">
       {#each options as option}
-      <button on:click={() => checkAnswer(option)}>{option}</button>
+        <button onclick={() => checkAnswer(option)}>{option}</button>
       {/each}
     </div>
-    {/if}
     
     <div class={"result " + classColour}>{result}</div>
   </div>
 
-  {#if !textLoading}
-    <Totaliser correct={correct} incorrect={incorrect} />
-  {/if}
+  <Totaliser correct={correct} incorrect={incorrect} />
 </div>
 
 <style>
@@ -106,6 +100,7 @@
     cursor: not-allowed;
     align-self: center;
     padding: 10px;
+    margin: 1rem;
   }
 
   /* Button styling */
