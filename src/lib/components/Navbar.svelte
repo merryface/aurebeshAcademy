@@ -118,19 +118,20 @@
   .aurebesh-helper {
     position: fixed;
     top: 50%;
-    right: 0;
+    right: -100%;
     background-color: #333;
     padding: 0;
     margin: 0;
-    translate: -25% -45%;
-    transform: translateX(125%);
-    transition: transform 0.3s ease-in-out;
+    translate: 50% -45%;
+    transition: right 0.3s ease-in-out;
     z-index: 999;
   }
 
   .aurebesh-helper.active  {
-    transform: translateX(0);
+    right: 50%
   }
+
+  
 
   .active {
     color: red;

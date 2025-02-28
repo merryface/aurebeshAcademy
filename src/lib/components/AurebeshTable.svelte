@@ -31,13 +31,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 10px;
-    max-width: 600px;
+    max-width: 95vw;
     padding: 10px;
     border: 1px solid #333;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   }
 
-  /* Card styling for each letter pair */
   .letter-card {
     background-color: #111;
     border: 1px solid #444;
@@ -45,11 +44,25 @@
     text-align: center;
   }
 
-  /*  */
-
   .english {
     margin-top: 5px;
     font-size: 0.5rem;
     color: #ccc;
   }
+
+  @media (max-width: 500px) {
+    .aurebesh {
+      font-size: 1rem;
+    }
+
+    .english {
+      font-size: 0.4rem;
+      margin-top: 3px;
+    }
+
+    .aurebesh-reference-chart {
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+      gap: 5px;
+    }
+}
 </style>
