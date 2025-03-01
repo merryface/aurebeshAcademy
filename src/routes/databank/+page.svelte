@@ -1,5 +1,6 @@
 <script>
   import { databank } from "$lib/data/starwars-databank.svelte";
+  import { aurebeshActive } from "$lib/data/aurebeshState.svelte";
 
   const routes = databank.groups.map((group) => {
     return {
@@ -9,7 +10,7 @@
   })
 </script>
 
-<div class="datapad aurebesh">
+<div class={"datapad " + (aurebeshActive.value ? 'aurebesh' : '')}>
   <header>
     <h1>Datapad</h1>
   </header>
