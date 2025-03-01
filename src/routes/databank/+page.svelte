@@ -1,14 +1,12 @@
 <script>
+  import { databank } from "$lib/data/starwars-databank.svelte";
 
-  let routes = [
-    { name: "Characters", path: "databank/characters" },
-    { name: 'Creatures', path: "databank/creatures" },
-    { name: "Droids", path: "databank/droids" },
-    { name: "Locations", path: "databank/locations" },
-    { name: "Organisations", path: "databank/organisations" },
-    { name: "Species", path: "databank/species" },
-    { name: "Vehicles", path: "databank /vehicle" },
-  ];
+  const routes = databank.groups.map((group) => {
+    return {
+      name: group,
+      path: `databank/${group}`,
+    }
+  })
 </script>
 
 <div class="datapad aurebesh">
@@ -27,10 +25,8 @@
 <style>
   .datapad {
     position: relative;
-    min-height: 100vh;
-    padding: 2rem;
     color: #0f0;
-  text-shadow: 0 0 8px #0f0;
+    text-shadow: 0 0 8px #0f0;
     background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 100%);
   }
 
@@ -49,15 +45,16 @@
 
   li {
     margin: 1rem 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
     transition: background 0.3s ease;
+    border: 1px solid #0f0;
   }
 
   li:hover {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(100, 0, 0, 0.9);
   }
 
   a {
