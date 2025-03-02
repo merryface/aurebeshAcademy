@@ -1,48 +1,47 @@
 <script>
   import { aurebeshActive } from "$lib/data/aurebeshState.svelte";
-  import { databank, fetchInformationFromEndpoint } from "$lib/data/starwars-databank.svelte";
-  import { onMount } from "svelte";
-
-  let pageCharacters = $state({})
-  let currentPage = $state(1);
-  let loading = $state(true)
-
-  $inspect(pageCharacters)
-
-
-  onMount(async () => {
-    pageCharacters = await fetchInformationFromEndpoint('characters', 1);
-    loading = false;
-  });
-
-  const nextPage = async () => {
-    if (pageCharacters.info.next) pageCharacters = await fetchInformationFromEndpoint('characters', currentPage += 1);
+  import { goto } from "$app/navigation";
+  
+  let { data } = $props()
+  
+  // Extract data from the loader
+  let characters = $state(data.characters)
+  let pageInfo = $state(data.pageInfo)
+  let currentPage = $state(data.currentPage)
+  
+  function nextPage() {
+    if (pageInfo.next) {
+      goto(`?page=${currentPage + 1}`);
+    }
   }
-
-  const previousPage = async () => {
-    if (pageCharacters.info.prev) pageCharacters = await fetchInformationFromEndpoint('characters', currentPage -= 1);
+  
+  function previousPage() {
+    if (pageInfo.prev) {
+      goto(`?page=${currentPage - 1}`);
+    }
   }
 </script>
 
-
-<div class={'list ' + (aurebeshActive.value ? 'aurebesh' : '')}>
-
+<div class={'list ' + (aurebeshActive ? 'aurebesh' : '')}>
   <header>
     <h1>Characters</h1>
   </header>
   
-  {#if loading}
+  {#if characters.length === 0}
     <p class="loading">Loading...</p>
   {/if}
+  
   <ul>
-    {#each pageCharacters.data as character}
-    <a href={'/databank/characters/' +character._id}><li>{character.name}</li></a>
+    {#each characters as character}
+      <a href={'/databank/characters/' + character._id}>
+        <li>{character.name}</li>
+      </a>
     {/each}
   </ul>
 
-  <div class={'pagination ' + (aurebeshActive.value ? 'aurebesh' : '')}>
-    <button onclick={previousPage}>← Previous</button>
-    <button onclick={nextPage}>Next →</button>
+  <div class={'pagination ' + (aurebeshActive ? 'aurebesh' : '')}>
+    <button onclick={previousPage} disabled={!pageInfo.prev}>← Previous</button>
+    <button onclick={nextPage} disabled={!pageInfo.next}>Next →</button>
   </div>
 </div>
 
@@ -59,7 +58,6 @@
     font-size: 3rem;
     margin-bottom: 2rem;
   }
-
 
   ul {
     list-style: none;
@@ -108,13 +106,18 @@
     cursor: pointer;
   }
 
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   @media (max-width: 400px) {
     header h1 {
       font-size: 2rem;
     }
 
     a {
-    font-size: 1.2rem;
+      font-size: 1.2rem;
     }
 
     li {
@@ -122,7 +125,7 @@
     }
 
     button {
-      font: 0.8rem;
+      font-size: 0.8rem;
     }
   }
 
