@@ -10,7 +10,6 @@
   })
 </script>
 
-<div class={"datapad " + (aurebeshActive.value ? 'aurebesh' : '')}>
   <header>
     <h1>Datapad</h1>
   </header>
@@ -21,16 +20,8 @@
       </li>
     {/each}
   </ul>
-</div>
 
 <style>
-  .datapad {
-    position: relative;
-    color: #0f0;
-    text-shadow: 0 0 8px #0f0;
-    background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 100%);
-  }
-
   header h1 {
     text-align: center;
     font-size: 3rem;

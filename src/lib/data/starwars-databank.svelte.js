@@ -8,7 +8,7 @@ const randomNumberNotInArray = (array, upperLimit) => {
   return random;
 }
 
-const fetchInformationFromEndpoint = async (dataGroup, pageNumber = null) => {
+export const fetchInformationFromEndpoint = async (dataGroup, pageNumber = null) => {
   const response = await fetch('https://starwars-databank-server.vercel.app/api/v1/' + dataGroup + (pageNumber ? '?page=' + pageNumber : ''))
 
   const data = await response.json()
