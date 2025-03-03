@@ -5,11 +5,11 @@ export async function load({ url }) {
   const page = Number(url.searchParams.get('page') || 1);
   
   // Fetch characters data
-  const characterData = await fetchInformationFromEndpoint('characters', page);
+  const locationsData = await fetchInformationFromEndpoint('locations', page);
   
   return {
-    characters: characterData.data || [],
-    pageInfo: characterData.info || { next: false, prev: false },
+    locations: locationsData.data || [],
+    pageInfo: locationsData.info || { next: false, prev: false },
     currentPage: page
   };
 }
