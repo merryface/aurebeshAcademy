@@ -3,4 +3,4 @@
   let { data } = $props()
 </script>
 
-<DataBankEntryPage data={data} group="characters" />
+<DataBankEntryPage data={data} group="creatures" />
